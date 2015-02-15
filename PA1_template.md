@@ -42,7 +42,7 @@ qd <- summarise(dfrByDate,sum(steps))
 hist(qd$sum, xlab="steps", main="Mean Total Number of Steps")
 ```
 
-![plot of chunk unnamed-chunk-3](./figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](figure/graphics-unnamed-chunk-3-1.png) 
 
 ```r
 summary(qd$sum)

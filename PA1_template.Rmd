@@ -33,7 +33,7 @@ dfrData <- read.csv("activity.csv")
 ```
 
 ## What is mean total number of steps taken per day?
-```{r echo=TRUE,fig.path="./figure/"}
+```{r echo=TRUE,fig.path="figure/graphics-"}
 dfrByDate <- group_by(dfrData,date)
 qd <- summarise(dfrByDate,sum(steps))
 hist(qd$sum, xlab="steps", main="Mean Total Number of Steps")
