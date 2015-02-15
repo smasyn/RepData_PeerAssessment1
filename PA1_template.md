@@ -5,7 +5,7 @@ output:
     keep_md: yes
   pdf_document: default
 ---
-# Module 5 Reprodicible Researh - Peer Assessment 1
+# Module 5 Reproducible Research - Peer Assessment 1
 
 ## Introduction
 It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the "quantified self" movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. But these data remain under-utilized both because the raw data are hard to obtain and there is a lack of statistical methods and software for processing and interpreting the data.
@@ -25,6 +25,7 @@ The variables included in this dataset are:
 library(dplyr)
 library(lubridate)
 library(knitr)
+opts_chunk$set(fig.path='./figure/')
 ```
 
 ## Loading and preprocessing the data
@@ -41,7 +42,7 @@ qd <- summarise(dfrByDate,sum(steps))
 hist(qd$sum, xlab="steps", main="Mean Total Number of Steps")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![plot of chunk unnamed-chunk-3](./figure/unnamed-chunk-3-1.png) 
 
 ```r
 summary(qd$sum)
@@ -62,7 +63,7 @@ qt <- summarise(dfrInt,mean(steps,na.rm=TRUE))
 plot(qt$int,qt$mean,type="l",main="Average Daily Activity Pattern", xlab="Interval", ylab="Average Steps")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![plot of chunk unnamed-chunk-4](./figure/unnamed-chunk-4-1.png) 
 
 ```r
 m <- which.max(qt$mean)
@@ -113,7 +114,7 @@ plot(qt$int,qt$mean,type="l")
 points(qtTidy$int,qtTidy$mean,type="l",col="red", xlab="Interval", ylab="Average Steps")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+![plot of chunk unnamed-chunk-6](./figure/unnamed-chunk-6-1.png) 
 
 ```r
 ## what is the impact of imputing missing values
@@ -144,7 +145,7 @@ hist(qd$sum,main = "Historgram of Raw Data",xlab="steps")
 hist(qtd$sum, main ="Historgram of Imputed Data ",xlab="steps")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
+![plot of chunk unnamed-chunk-7](./figure/unnamed-chunk-7-1.png) 
 
 ```r
 par(mfrow=c(1,1))
@@ -161,7 +162,7 @@ colnames(dat) <- paste(breaks[-length(breaks)], breaks[-1], sep="-")
 barplot(dat, beside=TRUE, space=c(0, 0.1), las=2,legend.text=c("raw","tidy"),main="Histogram of Raw and Imputed Data")
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-2.png) 
+![plot of chunk unnamed-chunk-7](./figure/unnamed-chunk-7-2.png) 
 
 As a result of our imputing strategy, replacing missing values by the mean, we note that the frequency around the mean value has increased.
 
@@ -182,7 +183,7 @@ plot(qtc1$interval,qtc1$mean,type="l",main="weekend",xlab="interval",ylab="avg s
 plot(qtc2$interval,qtc2$mean,type="l",main="weekday",xlab="interval",ylab="avg steps")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
+![plot of chunk unnamed-chunk-8](./figure/unnamed-chunk-8-1.png) 
 
 ```r
 par(mfrow=c(1,1))
