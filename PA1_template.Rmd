@@ -20,7 +20,7 @@ The variables included in this dataset are:
 - interval: Identifier for the 5-minute interval in which the measurement was taken
 
 ## Required libraries
-```{r results='asis', echo=TRUE}
+```{r echo=TRUE,}
 library(dplyr)
 library(lubridate)
 library(knitr)
@@ -33,7 +33,7 @@ dfrData <- read.csv("activity.csv")
 ```
 
 ## What is mean total number of steps taken per day?
-```{r echo=TRUE}
+```{r echo=TRUE,fig.path="./figure/"}
 dfrByDate <- group_by(dfrData,date)
 qd <- summarise(dfrByDate,sum(steps))
 hist(qd$sum, xlab="steps", main="Mean Total Number of Steps")
@@ -51,7 +51,7 @@ m <- which.max(qt$mean)
 qt$interval[m]
 ```
 
-Around 8:35am is soon to be on average the most active part of the day. 
+Around 8:35am is seen to be on average the most active part of the day. 
 
 ## Imputing missing values
 Missing data (indicated as NA) are imputed, i.e. replaced by a meaningful value.

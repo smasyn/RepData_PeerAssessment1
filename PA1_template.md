@@ -74,7 +74,7 @@ qt$interval[m]
 ## [1] 835
 ```
 
-Around 8:35am is soon to be on average the most active part of the day. 
+Around 8:35am is seen to be on average the most active part of the day. 
 
 ## Imputing missing values
 Missing data (indicated as NA) are imputed, i.e. replaced by a meaningful value.
